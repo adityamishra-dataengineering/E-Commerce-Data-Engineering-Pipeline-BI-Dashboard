@@ -1,0 +1,26 @@
+olist-data-pipeline/
+│
+├── app/                      # 🌟 NEW: Web Interface Directory
+│   ├── assets/               # Images, architecture diagrams, flowcharts for UI
+│   └── main.py               # Streamlit application script (`streamlit run app/main.py`)
+│
+├── dags/
+│   └── olist_pipeline_dag.py # Airflow DAG (Orchestration script)
+│
+├── data/
+│   ├── raw/                  # Downloaded Kaggle CSVs
+│   ├── bronze/               # Generated: Raw Parquet files
+│   ├── silver/               # Generated: Cleaned Parquet files
+│   └── gold/                 # Generated: Fact and Dimension Parquet files
+│
+│
+├── scripts/
+│   ├── ingest_bronze.py      # Step 1: Raw CSV -> Bronze Parquet
+│   ├── transform_silver.py   # Step 2: Bronze -> Clean Silver Parquet
+│   ├── load_gold.py          # Step 3: Silver -> Star Schema Gold Parquet
+│   └── load_to_mysql.py      # Step 4: Gold Parquet -> MySQL Production DW
+│
+├── docker-compose.yml        # Provisions Airflow, Spark cluster, & MySQL
+├── .env                      # Stores AIRFLOW_UID, FERNET_KEY, MYSQL_PASSWORD
+├── requirements.txt          # 🌟 NEW: Python dependencies (streamlit, pyspark, etc.)
+└── README.md                 # Project documentation and setup guide

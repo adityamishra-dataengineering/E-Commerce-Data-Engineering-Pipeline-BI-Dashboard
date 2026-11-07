@@ -1,0 +1,54 @@
+# =========================================================================
+# 1. SECURITY & ENVIRONMENT SECRETS
+# =========================================================================
+.env
+*.env
+.streamlit/secrets.toml
+config/airflow.cfg
+airflow.cfg
+
+# =========================================================================
+# 2. AIRFLOW RUNTIME & EXECUTION LOGS
+# =========================================================================
+logs/
+*.log
+airflow-worker.pid
+airflow-scheduler.pid
+airflow-apiserver.pid
+
+# =========================================================================
+# 3. PYTHON & PYSPARK CACHES & BINARIES
+# =========================================================================
+**/__pycache__/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.spark-warehouse/
+*.jar
+
+# =========================================================================
+# 4. DATA, EXPORTS & DATABASE VOLUMES
+# =========================================================================
+data/raw/*
+data/bronze/*
+data/silver/*
+data/gold/*
+data/gold_csv/*
+mysql_data/
+
+# Keep folder structure intact on GitHub
+!data/raw/.gitkeep
+!data/bronze/.gitkeep
+!data/silver/.gitkeep
+!data/gold/.gitkeep
+!data/gold_csv/.gitkeep
+
+# =========================================================================
+# 5. MACOS SYSTEM FILES
+# =========================================================================
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
